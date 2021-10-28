@@ -1,0 +1,13 @@
+import collections
+# re is a module which contains regular expression matching functions
+import re
+
+file = open('three_muskateers.txt', "r")
+# Use findall function in the re library to seach for all the words
+words = re.findall(r'\w+', file.read())
+# This most_common function takes the number of most common elements to return, in our case we have passed 1
+most_frequent_word = collections.Counter(words).most_common(1)
+# We dont need the count hence we will extract the word
+most_frequent_word = most_frequent_word[0][0]
+# assert to check our result
+assert most_frequent_word == "the"
